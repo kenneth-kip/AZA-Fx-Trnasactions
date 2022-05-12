@@ -1,29 +1,47 @@
-<<<<<<< HEAD
 # AZA-Fx-Trnasactions
+
 Aza Fx Trnasactions
-=======
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## About
 
-Things you may want to cover:
+Hi, and welcome to AZA Finance! We are just updating our FX platform and will need a new microservice
+to store FX transactions. These transactions will store how much money we will receive from our
+customers in the input currency, and how much we will pay them out in the output currency.
 
-* Ruby version
+## Installation
 
-* System dependencies
+1. Setup rails  and bundler on you machine
 
-* Configuration
+        $ gem install rails 6.0
+        $ gem intall bundler
 
-* Database creation
+2. Make you have porstgres installed
 
-* Database initialization
+        $ brew install postgresql
 
-* How to run the test suite
+3. Clone this repository
 
-* Services (job queues, cache servers, search engines, etc.)
+4. Run `bundle install` to Install the dependecies
 
-* Deployment instructions
+5. Setup the environmentalvariable for your DB
+    ```
+        $ export DATABASE_USERNAME=db_user
+        $ export DATABASE_PASSWORD=db_password
+        $ export DATABASE_NAME=aza
+    ```
+6. Setup up the DB by creating the database and run the migration
+    ```
+        $ rails db:create
+        $ rails db:migrate
+        $ rails db:seed
+    ```
+7. To run the api. The app runs on port `3000`
+        $ rails serve
 
-* ...
->>>>>>> 6b8878f (Initial commit)
+## API Documentation
+
+(API Documenation)[https://documenter.getpostman.com/view/8046984/UyxgK8mX]
+
+## Contribution
+
+Feel free to raise a PR
