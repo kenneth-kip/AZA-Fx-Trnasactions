@@ -1,4 +1,4 @@
-# AZA-Fx-Trnasactions API
+# AZA-FX-Trnasactions API
 
 ## About
 
@@ -17,11 +17,11 @@ customers in the input currency, and how much we will pay them out in the output
 
         $ brew install postgresql
 
-3. Clone this repository
+3. Clone this [repository](https://github.com/kenneth-kip/AZA-Fx-Trnasactions). I'll send an invitation let me know
 
 4. Run `bundle install` to Install the dependecies
 
-5. Set the environmental variables for the DB and the app
+5. Set the environmental variables for the DB and the app or Add the vars to the `.env` file.
     ```
     $ export DATABASE_USERNAME=db_user
     $ export DATABASE_PASSWORD=db_password
@@ -33,8 +33,10 @@ customers in the input currency, and how much we will pay them out in the output
     $ rails db:migrate
     $ rails db:seed
     ```
-7. To run the api. The app runs on port `3000`
-        $ rails serve
+7. To run the api. The app runs on port `3000`.
+    ```
+    $ rails serve
+    ```
 
 ## API Documentation
 
