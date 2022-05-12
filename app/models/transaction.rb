@@ -17,8 +17,8 @@ class Transaction < ApplicationRecord
   validates :output_amount, presence: true
   validates :input_currency, inclusion: { in: CURRENCIES.keys.map(&:to_s) }
   validates :output_currency, inclusion: { in: CURRENCIES.keys.map(&:to_s) }
-  validates :input_amount, numericality: { greater_than_or_equal_to: 0.0 }
-  validates :output_amount, numericality: { greater_than_or_equal_to: 0.0 }
+  validates :input_amount, numericality: { greater_than: 0.0 }
+  validates :output_amount, numericality: { greater_than: 0.0 }
   validate :validate_currency
 
   scope :filter_by_input_currency, ->(currency) { where(input_currency: currency) }
@@ -58,11 +58,11 @@ class Transaction < ApplicationRecord
     end
   end
 
-  def input_amount
+  def input_amount_with_currency
     number_to_currency(read_attribute(:input_amount), unit: input_currency.upcase, format: "%n %u")
   end
 
-  def output_amount
+  def output_amount_with_currency
     number_to_currency(read_attribute(:output_amount), unit: output_currency.upcase, format: "%n %u")
   end
 

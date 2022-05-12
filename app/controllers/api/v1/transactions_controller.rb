@@ -4,12 +4,13 @@ module Api
     class TransactionsController < ApplicationController
       def index
         transactions = Transaction.filter(filtering_params)
-        paginate json: transactions
+        paginate json: transactions, per_page: per_page
       end
 
       def show
         transaction = Transaction.find_by(id: params[:id])
         return render json: transaction if transaction.present?
+
         render json: { error: 'resource not found' }, status: :not_found
       end
 
@@ -19,9 +20,8 @@ module Api
           render json: transaction, status: :created
         else
           render json: {
-            errors: transaction.errors,
-            status: :unprocessable_entity
-          }
+            errors: transaction.errors
+          }, status: :unprocessable_entity
         end
       end
 
@@ -35,6 +35,10 @@ module Api
 
       def filtering_params
         params.slice(:customer_id, :input_currency, :output_currency, :input_amount, :output_amount, :transaction_date)
+      end
+
+      def per_page
+        params[:per_page] || 10
       end
     end
   end

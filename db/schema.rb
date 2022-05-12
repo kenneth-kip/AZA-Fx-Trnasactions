@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2022_05_11_070321) do
     t.decimal "output_amount", precision: 8, scale: 2
     t.integer "input_currency", null: false
     t.integer "output_currency", null: false
+    t.index ["customer_id"], name: "index_transactions_on_customer_id"
   end
 
 end
