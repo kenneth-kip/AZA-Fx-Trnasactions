@@ -1,6 +1,4 @@
-# AZA-Fx-Trnasactions
-
-Aza Fx Trnasactions
+# AZA-Fx-Trnasactions API
 
 ## About
 
@@ -23,25 +21,27 @@ customers in the input currency, and how much we will pay them out in the output
 
 4. Run `bundle install` to Install the dependecies
 
-5. Setup the environmentalvariable for your DB
+5. Set the environmental variables for the DB and the app
     ```
-        $ export DATABASE_USERNAME=db_user
-        $ export DATABASE_PASSWORD=db_password
-        $ export DATABASE_NAME=aza
+    $ export DATABASE_USERNAME=db_user
+    $ export DATABASE_PASSWORD=db_password
+    $ export DATABASE_NAME=aza
     ```
-6. Setup up the DB by creating the database and run the migration
+6. Setup up the DB by creating the database, running the migrations and seeding the data
     ```
-        $ rails db:create
-        $ rails db:migrate
-        $ rails db:seed
+    $ rails db:create
+    $ rails db:migrate
+    $ rails db:seed
     ```
 7. To run the api. The app runs on port `3000`
         $ rails serve
 
 ## API Documentation
 
-(API Documenation)[https://documenter.getpostman.com/view/8046984/UyxgK8mX]
+Find the [API Documenation](https://documenter.getpostman.com/view/8046984/UyxgK8mX) here.
 
 ## Contribution
 
-Feel free to raise a PR
+Feel free to raise a PR and use this code for you own benefit
+
+[License](https://github.com/kenneth-kip/AZA-Fx-Trnasactions/blob/main/LICENSE)
