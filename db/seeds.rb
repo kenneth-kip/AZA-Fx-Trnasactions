@@ -6,13 +6,35 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-50.times do |_|
+10.times do |_|
   Transaction.create!(
     customer_id: SecureRandom.uuid,
     input_amount: [*1000..10000].sample,
-    input_currency: ['eur', 'usd', 'kshs'].sample,
+    input_currency: 'eur',
     output_amount: [*1000..10000].sample,
-    output_currency: ['eur', 'usd', 'kshs'].sample,
+    output_currency: 'usd',
+    transaction_date: DateTime.now
+  )
+end
+
+10.times do |_|
+  Transaction.create!(
+    customer_id: SecureRandom.uuid,
+    input_amount: [*1000..10000].sample,
+    input_currency: 'eur',
+    output_amount: [*1000..10000].sample,
+    output_currency: 'kshs',
+    transaction_date: DateTime.now
+  )
+end
+
+10.times do |_|
+  Transaction.create!(
+    customer_id: SecureRandom.uuid,
+    input_amount: [*1000..10000].sample,
+    input_currency: 'usd',
+    output_amount: [*1000..10000].sample,
+    output_currency: 'kshs',
     transaction_date: DateTime.now
   )
 end
