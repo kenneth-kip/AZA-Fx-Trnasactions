@@ -24,6 +24,7 @@ gem 'puma', '~> 4.1'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'kaminari', '1.2.2'
+gem 'api-pagination', '5.0.0'
 gem 'pg', '1.3.5'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
