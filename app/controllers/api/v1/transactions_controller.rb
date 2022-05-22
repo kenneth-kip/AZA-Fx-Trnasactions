@@ -2,15 +2,17 @@
 module Api
   module V1
     class TransactionsController < ApplicationController
+      before_action :authorize_request
+
       def index
         transactions = Transaction.filter(filtering_params)
         paginate json: transactions, per_page: per_page
       end
 
       def show
-        transaction = Transaction.find_by(id: params[:id])
-        return render json: transaction if transaction.present?
-
+        transaction = Transaction.find_by!(id: params[:id])
+        render json: transaction
+      rescue ActiveRecord::RecordNotFound
         render json: { error: 'resource not found' }, status: :not_found
       end
 
