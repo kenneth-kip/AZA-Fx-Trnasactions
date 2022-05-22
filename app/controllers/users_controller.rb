@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   # GET /users
   def index
     users = User.all
-    paginate render json: users, status: :ok
+    paginate json: users, status: :ok
   end
 
   # GET /users/{username}

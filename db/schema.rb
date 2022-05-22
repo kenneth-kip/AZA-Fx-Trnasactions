@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2022_05_22_181811) do
     t.index ["customer_id"], name: "index_transactions_on_customer_id"
     t.uuid "users_id"
     t.index ["customer_id"], name: "index_transactions_on_customer_id"
-    t.index ["users_id"], name: "index_transactions_on_users_id"
+    t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

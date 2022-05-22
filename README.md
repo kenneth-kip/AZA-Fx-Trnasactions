@@ -1,4 +1,4 @@
-# AZA-FX-Trnasactions API
+# AZA-FX-Transactions API
 
 ## About
 
@@ -41,6 +41,14 @@ customers in the input currency, and how much we will pay them out in the output
 ## API Documentation
 
 Find the [API Documenation](https://documenter.getpostman.com/view/8046984/UyxgK8mX) here.
+
+## Tests
+
+Run `rspec`
+
+## Authentication
+
+Sign up as a user of the api, then login. Immediately you login user always gets a JWT token, add the JWT Token to the `Authorization` header on every request.
 
 ## Contribution
 

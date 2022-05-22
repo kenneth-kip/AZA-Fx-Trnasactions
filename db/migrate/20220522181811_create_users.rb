@@ -9,6 +9,6 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.timestamps
     end
 
-    add_reference :transactions, :users, type: :uuid
+    add_reference :transactions, :user, type: :uuid
   end
 end

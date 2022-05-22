@@ -5,19 +5,19 @@ module Api
       before_action :authorize_request
 
       def index
-        transactions = Transaction.filter(filtering_params)
-        paginate json: transactions, per_page: per_page
+        transactions = Transaction.filter(filtering_params).where(user: current_user)
+        paginate json: transactions
       end
 
       def show
-        transaction = Transaction.find_by!(id: params[:id])
+        transaction = current_user.transactions.find_by!(id: params[:id])
         render json: transaction
       rescue ActiveRecord::RecordNotFound
         render json: { error: 'resource not found' }, status: :not_found
       end
 
       def create
-        transaction = Transaction.new(create_params)
+        transaction = current_user.transactions.new(create_params)
         if transaction.save
           render json: transaction, status: :created
         else

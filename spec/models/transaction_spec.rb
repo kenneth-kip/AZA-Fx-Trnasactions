@@ -16,4 +16,6 @@ RSpec.describe Transaction, type: :model do
   it { should define_enum_for(:output_currency).with_values(usd: 0, eur: 1, kshs: 2).with_prefix(:output_currency) }
 
   it { should define_enum_for(:input_currency).with_values(usd: 0, eur: 1, kshs: 2).with_prefix(:input_currency) }
+
+  it { should belong_to(:user) }
 end
