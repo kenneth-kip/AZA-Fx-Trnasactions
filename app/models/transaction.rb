@@ -58,11 +58,11 @@ class Transaction < ApplicationRecord
     end
   end
 
-  def input_amount_with_currency
+  def input_amount_currency
     number_to_currency(read_attribute(:input_amount), unit: input_currency.upcase, format: "%n %u")
   end
 
-  def output_amount_with_currency
+  def output_amount_currency
     number_to_currency(read_attribute(:output_amount), unit: output_currency.upcase, format: "%n %u")
   end
 
