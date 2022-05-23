@@ -6,4 +6,7 @@ Rails.application.routes.draw do
       resources :transactions, only: [:index, :create, :show]
     end
   end
+
+  resources :users, param: :username
+  post '/auth/login', to: 'authentication#login'
 end

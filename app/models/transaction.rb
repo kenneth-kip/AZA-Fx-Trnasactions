@@ -11,10 +11,12 @@ class Transaction < ApplicationRecord
   enum input_currency: CURRENCIES, _prefix: :input_currency
   enum output_currency: CURRENCIES, _prefix: :output_currency
 
+  belongs_to :user
   validates :customer_id, presence: true
   validates :input_amount, presence: true
   validates :transaction_date, presence: true
   validates :output_amount, presence: true
+  validates :user, presence: true
   validates :input_currency, inclusion: { in: CURRENCIES.keys.map(&:to_s) }
   validates :output_currency, inclusion: { in: CURRENCIES.keys.map(&:to_s) }
   validates :input_amount, numericality: { greater_than: 0.0 }
@@ -58,11 +60,11 @@ class Transaction < ApplicationRecord
     end
   end
 
-  def input_amount_with_currency
+  def input_amount_currency
     number_to_currency(read_attribute(:input_amount), unit: input_currency.upcase, format: "%n %u")
   end
 
-  def output_amount_with_currency
+  def output_amount_currency
     number_to_currency(read_attribute(:output_amount), unit: output_currency.upcase, format: "%n %u")
   end
 
